@@ -1,0 +1,82 @@
+Progressive Coding Project: Flat ΛCDM Inference with Pantheon+SH0ES
+
+Overview
+This project is designed to guide you through the progressive construction of a scientific Python code for parameter inference in a flat ΛCDM cosmological model using the Pantheon+SH0ES supernova sample. The project is intentionally divided into five weekly stages so that the full workflow is built gradually and in a methodologically transparent way.
+
+By the end of the project, you should be able to:
+- implement the basic background expansion functions of flat ΛCDM,
+- read and validate a real cosmological dataset,
+- construct simple and then full likelihood functions,
+- incorporate the full covariance matrix consistently,
+- and perform Bayesian inference for (Ω_m, H_0, M_B) using MCMC.
+
+Each week has a specific technical goal. At the end of every week, your code must run successfully and produce a partial but physically meaningful result. This is essential: the project is cumulative, and each stage should leave you with a working script rather than incomplete fragments.
+
+General Working Principles
+1. Your code must be written in Python and be executable from the command line.
+2. Every weekly submission must include:
+   - one executable Python script,
+   - one figure or numerical output that demonstrates progress,
+   - and a short technical note (1–2 pages maximum) explaining what was implemented, what equations were used, and what remains to be done.
+3. Your code should be clearly structured, commented, and scientifically readable.
+4. You are encouraged to use NumPy, Matplotlib, and, where appropriate, SciPy and emcee.
+5. Scientific clarity is more important than stylistic sophistication. A correct and well-documented script is preferable to a more elaborate but opaque implementation.
+
+Recommended Project Structure
+You are encouraged to organize your work using a structure similar to the following:
+
+project_root/
+    data/
+    results/
+    week1_lcdm_distances.py
+    week2_data_inspection.py
+    week3_simple_likelihood.py
+    week4_full_covariance_likelihood.py
+    week5_mcmc_inference.py
+
+You may adapt file names if needed, but the logic of progressive development should remain clear.
+
+======================================================================
+WEEK 1
+Flat ΛCDM background functions and distance measures
+======================================================================
+
+Scientific objective
+The goal of the first week is to implement the background expansion model of a flat ΛCDM universe and use it to compute luminosity distances and distance moduli. At this stage, you are not yet using real observational data. The purpose is to build and understand the cosmological backbone of the final code.
+
+Conceptual background
+For a spatially flat ΛCDM model, the dimensionless Hubble function is
+
+    E(z) = sqrt[Ω_m (1 + z)^3 + (1 - Ω_m)].
+
+The luminosity distance is
+
+    d_L(z) = (1 + z) (c / H_0) ∫_0^z dz' / E(z'),
+
+and the theoretical distance modulus is
+
+    μ(z) = 5 log10[d_L(z) / Mpc] + 25.
+
+Tasks
+1. Write a Python function for E(z) in flat ΛCDM.
+2. Implement a numerical integration routine for the comoving distance.
+3. Build a function for the luminosity distance d_L(z).
+4. Build a function for the distance modulus μ(z).
+5. Generate plots of μ(z) over a reasonable redshift interval, for example 0.001 ≤ z ≤ 2.
+6. Compare several choices of Ω_m and H_0 to visualize how the Hubble diagram changes.
+
+Minimum expected output
+At least one figure showing μ(z) for several ΛCDM models.
+
+What your code must do by the end of Week 1
+Your script must run without errors and produce a physically sensible Hubble-diagram prediction.
+
+Suggested checks
+- Verify that increasing H_0 decreases the inferred distances at fixed redshift.
+- Verify that changing Ω_m alters the curvature of μ(z) as a function of z.
+- Check that your distances remain positive and finite over the full redshift range explored.
+
+Deliverables
+- One executable script.
+- One figure of μ(z) curves.
+- One short note explaining the equations implemented and the numerical strategy used.

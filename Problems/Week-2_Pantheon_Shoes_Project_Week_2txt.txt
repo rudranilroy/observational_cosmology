@@ -1,0 +1,47 @@
+======================================================================
+WEEK 2
+Reading and validating the Pantheon+SH0ES dataset
+======================================================================
+
+Scientific objective
+The goal of the second week is to move from theoretical functions to real observational input. You will learn how to read the Pantheon+SH0ES data file, identify the relevant columns, and inspect the structure of the sample.
+
+Conceptual background
+The final code will use the corrected apparent magnitude m_b_corr, the Cepheid calibration information, and the redshift variables z_CMB and z_Hel. Before building a likelihood, you must understand the structure and logic of the catalog.
+
+Relevant columns to inspect
+You should identify and study at least the following fields:
+- zCMB
+- zHEL
+- m_b_corr
+- CEPH_DIST
+- IS_CALIBRATOR
+
+Tasks
+1. Read the Pantheon+SH0ES data table with named columns.
+2. Confirm that the required columns exist and can be accessed correctly.
+3. Count the total number of supernovae.
+4. Identify the subset of Cepheid calibrators using IS_CALIBRATOR.
+5. Inspect whether the main relevant columns contain finite values.
+6. Produce one or two exploratory figures.
+
+Suggested figures
+- Histogram of zCMB.
+- Scatter plot of m_b_corr versus zCMB.
+- A visualization distinguishing calibrators from the rest of the sample.
+
+Minimum expected output
+A clear printed summary of the dataset and at least one exploratory plot.
+
+What your code must do by the end of Week 2
+Your script must load the dataset correctly, identify the relevant subsets, and provide a first empirical description of the sample.
+
+Suggested checks
+- Confirm the total number of rows in the file.
+- Confirm how many objects satisfy IS_CALIBRATOR == 1.
+- Check whether any rows contain missing or non-finite values in key columns.
+
+Deliverables
+- One executable script.
+- One or two exploratory figures.
+- One short note explaining the structure of the dataset and the role of the main columns.
