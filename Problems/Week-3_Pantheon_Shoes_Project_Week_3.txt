@@ -1,0 +1,53 @@
+======================================================================
+WEEK 3
+Building a first simplified likelihood
+======================================================================
+
+Scientific objective
+The goal of the third week is to construct your first statistical fit. This version should still be simplified: do not start yet with the full covariance matrix. The priority is to understand the logic of the model prediction and the residual construction.
+
+Conceptual background
+The project combines two classes of objects:
+
+1. Cepheid calibrators:
+   For these objects, the model is
+       m_b,th = M_B + μ_Ceph,
+   where μ_Ceph is taken from the column CEPH_DIST.
+
+2. Cosmological supernovae:
+   For these objects, the model is
+       m_b,th = M_B + μ_LCDM(z_Hel, z_CMB; H_0, Ω_m).
+
+At this stage you may begin with a simplified chi-square based on diagonal uncertainties only, or with a controlled subset of the sample if you prefer. The goal is conceptual clarity, not yet the final high-precision implementation.
+
+Tasks
+1. Build a function that computes the model prediction for calibrators.
+2. Build a function that computes the model prediction for cosmological supernovae.
+3. Combine both into a single residual vector.
+4. Define a simplified chi-square of the form
+
+       χ² = Σ_i [(m_b,obs - m_b,th)^2 / σ_i^2].
+
+5. Explore the parameter dependence of χ² for
+   - Ω_m,
+   - H_0,
+   - M_B.
+6. Obtain a preliminary best fit using either:
+   - a grid search,
+   - or a deterministic minimization routine.
+
+Minimum expected output
+A numerical estimate of the best-fitting parameters within the simplified likelihood framework.
+
+What your code must do by the end of Week 3
+Your script must run and return a preliminary estimate of (Ω_m, H_0, M_B), even if the treatment of uncertainties is still approximate.
+
+Suggested checks
+- Confirm that the residual vector has the expected length.
+- Verify that χ² changes when the parameters change.
+- Confirm that your best fit is not located at an obviously pathological point in parameter space.
+
+Deliverables
+- One executable script.
+- One summary of the preliminary best-fit parameters.
+- One short note explaining the simplified likelihood, its assumptions, and its limitations.
