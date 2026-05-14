@@ -1,0 +1,50 @@
+======================================================================
+WEEK 4
+Constructing the full Gaussian likelihood with the covariance matrix
+======================================================================
+
+Scientific objective
+The goal of the fourth week is to upgrade the simplified fitting framework into a scientifically consistent Gaussian likelihood using the full covariance matrix of the Pantheon+SH0ES sample.
+
+Conceptual background
+Once the full covariance is included, the correct Gaussian likelihood is based on
+
+    χ² = Δ^T C^{-1} Δ,
+
+where Δ is the residual vector
+
+    Δ = m_b,obs - m_b,th.
+
+The corresponding log-likelihood is
+
+    ln L = -1/2 [Δ^T C^{-1} Δ + ln det(C) + N ln(2π)].
+
+This is the stage at which your code becomes a realistic statistical analysis tool.
+
+Tasks
+1. Read the covariance matrix file.
+2. Verify that its dimensions are consistent with the data table.
+3. Build the selected index set consistently with the supernovae used in the analysis.
+4. Extract the corresponding covariance submatrix.
+5. Invert the covariance matrix.
+6. Compute the log-determinant safely.
+7. Build the full log-likelihood function.
+8. Test the likelihood for several parameter values.
+9. Obtain a deterministic best fit or a coarse posterior exploration.
+
+Minimum expected output
+A working likelihood evaluation using the full covariance matrix and the full selected Pantheon+SH0ES sample.
+
+What your code must do by the end of Week 4
+Your script must evaluate the full Gaussian log-likelihood consistently and return a best-fit estimate or at least a clear maximum-likelihood candidate.
+
+Suggested checks
+- Verify that the covariance matrix is finite and square.
+- Verify that the selected covariance submatrix matches the number of supernovae actually used.
+- Check that the matrix inversion succeeds and that the log-likelihood remains finite.
+- Compare the behavior of the full likelihood with the simplified one from Week 3.
+
+Deliverables
+- One executable script.
+- One printed summary of likelihood values and/or best-fit parameters.
+- One short note explaining how the covariance matrix was incorporated and why this step is necessary.
