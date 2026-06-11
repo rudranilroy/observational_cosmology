@@ -1,0 +1,59 @@
+======================================================================
+WEEK 5
+Bayesian inference with MCMC
+======================================================================
+
+Scientific objective
+The goal of the final week is to perform Bayesian parameter inference for the model using Markov Chain Monte Carlo. At this point, the full model and full likelihood should already exist. The purpose now is to sample the posterior distribution and extract credible intervals.
+
+Conceptual background
+You will define priors and construct the posterior probability
+
+    ln P(θ | data) = ln π(θ) + ln L(data | θ),
+
+with parameter vector
+
+    θ = (Ω_m, H_0, M_B).
+
+A practical implementation can be carried out using the emcee package.
+
+Tasks
+1. Define physically sensible priors for Ω_m, H_0, and M_B.
+2. Write functions for:
+   - log_prior,
+   - log_likelihood,
+   - log_posterior (or log_prob).
+3. Initialize an ensemble of walkers.
+4. Run an MCMC chain using emcee.
+5. Save the chain to disk.
+6. Remove burn-in and optionally thin the chain.
+7. Compute posterior summaries:
+   - median,
+   - 16th percentile,
+   - 84th percentile.
+8. Produce at least one posterior visualization.
+
+Suggested outputs
+- A corner plot of the posterior.
+- A printed summary such as
+      Ω_m = ...
+      H_0 = ...
+      M_B = ...
+  with credible intervals.
+
+Minimum expected output
+A working MCMC script that produces posterior samples and parameter constraints.
+
+What your code must do by the end of Week 5
+Your final script must run successfully, sample the posterior, and report credible intervals for the cosmological parameters.
+
+Suggested checks
+- Verify that the chain has sufficient length.
+- Check whether the walkers have mixed reasonably.
+- Inspect traces for obvious non-convergence.
+- Compare posterior central values with the deterministic estimates from Week 4.
+
+Deliverables
+- One executable script.
+- One posterior figure.
+- One short note explaining the priors, the MCMC setup, and the final inferred parameters.

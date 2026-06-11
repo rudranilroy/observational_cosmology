@@ -1,0 +1,94 @@
+======================================================================
+WEEK 6
+Joint flat ΛCDM inference with Pantheon+SH0ES and Cosmic Chronometers
+======================================================================
+
+Scientific objective
+
+The goal of Week 6 is to extend the Bayesian inference pipeline developed in the previous weeks by combining the Pantheon+SH0ES supernova likelihood with an independent Cosmic Chronometer likelihood. The analysis must remain restricted to a spatially flat ΛCDM cosmology.
+
+By the end of this week, you should be able to:
+
+- read and validate a Cosmic Chronometer H(z) dataset,
+
+- construct a Gaussian likelihood for direct H(z) measurements,
+
+- combine it consistently with the Pantheon+SH0ES likelihood developed in Weeks 4 and 5,
+
+- perform a joint MCMC inference for the flat ΛCDM parameters,
+
+- compare the posterior constraints obtained from Pantheon+SH0ES alone and from Pantheon+SH0ES + Cosmic Chronometers.
+
+This week is not intended to introduce a new cosmological model. The purpose is to understand how independent late-time probes can be combined within the same statistical framework.
+
+Conceptual background
+
+In the previous weeks, the analysis was based on the Pantheon+SH0ES supernova sample. The supernova likelihood constrains the relation between redshift and luminosity distance through the corrected apparent magnitudes and the absolute magnitude calibration parameter.
+
+For the flat ΛCDM model, the dimensionless expansion function is
+
+    E(z) = sqrt[Ω_m (1 + z)^3 + (1 - Ω_m)],
+
+and the Hubble expansion rate is
+
+    H(z) = H_0 E(z).
+
+The Pantheon+SH0ES part of the analysis uses the theoretical prediction for the distance modulus, or equivalently for the corrected apparent magnitude,
+
+    m_b,th = M_B + μ_LCDM(z; Ω_m, H_0),
+
+together with the full covariance matrix of the supernova sample.
+
+Cosmic Chronometers provide direct estimates of H(z) obtained from differential age measurements of passively evolving galaxies. The basic relation is
+
+    H(z) = -1/(1+z) dz/dt.
+
+Therefore, unlike supernovae, Cosmic Chronometers directly constrain the expansion rate in units of km s^{-1} Mpc^{-1}. Their inclusion is useful because they provide an independent late-time measurement of H(z), helping to constrain H_0 and Ω_m in a complementary way.
+
+In this week, the total log-likelihood will be written as
+
+    ln L_joint = ln L_SN + ln L_CC,
+
+assuming statistical independence between the Pantheon+SH0ES supernova data and the Cosmic Chronometer data.
+
+Parameter vector
+
+The parameter vector remains
+
+    θ = (Ω_m, H_0, M_B).
+
+Here:
+
+- Ω_m controls the matter density fraction today,
+
+- H_0 sets the present-day expansion rate,
+
+- M_B is the absolute magnitude nuisance/calibration parameter used in the Pantheon+SH0ES likelihood.
+
+Cosmic Chronometers constrain only Ω_m and H_0 directly. They do not depend on M_B.
+
+======================================================================
+Tasks
+======================================================================
+
+1. Start from your Week 5 MCMC script.
+
+2. Add a new function to read the Cosmic Chronometer dataset.
+
+3. Validate the CC data columns.
+
+4. Implement the theoretical prediction H_LCDM(z; Ω_m, H_0).
+
+5. Construct the Gaussian CC likelihood.
+
+6. Combine the CC likelihood with the full Pantheon+SH0ES likelihood.
+
+7. Run an MCMC analysis for the joint posterior.
+
+8. Compare the posterior constraints with the Pantheon+SH0ES-only case.
+
+9. Produce at least two figures:
+
+   - a corner plot for the joint posterior,
+
+   - a plot of H(z) with the CC data and the posterior ΛCDM prediction.

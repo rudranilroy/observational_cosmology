@@ -1,0 +1,159 @@
+======================================================================
+WEEK 7
+Joint flat ΛCDM inference with Pantheon+SH0ES, Cosmic Chronometers,
+and BAO
+======================================================================
+
+Scientific objective
+
+The goal of Week 7 is to extend the joint late-time inference pipeline
+
+developed in Week 6 by adding Baryon Acoustic Oscillation measurements.
+
+The analysis must remain restricted to a spatially flat ΛCDM cosmology.
+
+By the end of this week, you should be able to:
+
+- read and validate a BAO dataset,
+
+- identify the BAO observable used in each data point,
+
+- compute the relevant flat ΛCDM distance quantities,
+
+- construct a Gaussian BAO likelihood,
+
+- combine Pantheon+SH0ES, Cosmic Chronometers, and BAO into a single
+
+  joint likelihood,
+
+- perform Bayesian inference for the flat ΛCDM parameter vector,
+
+- compare the posterior constraints obtained from:
+
+      Pantheon+SH0ES only,
+
+      Pantheon+SH0ES + CC,
+
+      Pantheon+SH0ES + CC + BAO.
+
+This week is not intended to introduce early-Universe physics or a
+
+non-standard cosmological model. The focus is the correct statistical
+
+and numerical combination of late-time geometrical and expansion-rate
+
+observables within flat ΛCDM.
+
+======================================================================
+Conceptual background
+======================================================================
+
+In Week 6, the total likelihood was constructed as
+
+    ln L_joint = ln L_SN + ln L_CC,
+
+where the supernova likelihood constrains the luminosity-distance
+
+relation and the Cosmic Chronometer likelihood constrains H(z) directly.
+
+In Week 7, we add BAO data. BAO measurements provide geometrical
+
+constraints involving cosmological distances relative to the sound
+
+horizon at the baryon drag epoch, r_d. Depending on the dataset, BAO
+
+measurements may be isotropic or anisotropic.
+
+Common BAO observables include
+
+    D_M(z) / r_d,
+
+    D_H(z) / r_d,
+
+    D_V(z) / r_d,
+
+or sometimes equivalent combinations such as
+
+    H(z) r_d.
+
+Here,
+
+    D_H(z) = c / H(z)
+
+is the Hubble distance, and for a spatially flat Universe,
+
+    D_M(z) = c ∫_0^z dz' / H(z')
+
+is the transverse comoving distance.
+
+The volume-averaged BAO distance is
+
+    D_V(z) = [ z D_H(z) D_M^2(z) ]^{1/3}.
+
+The total likelihood for Week 7 is therefore
+
+    ln L_total = ln L_SN + ln L_CC + ln L_BAO,
+
+assuming that the three datasets can be treated as statistically
+
+independent.
+
+======================================================================
+Parameter vector
+======================================================================
+
+The parameter vector used in Week 7 is
+
+    θ = (Ω_m, H_0, M_B, r_d).
+
+Here:
+
+- Ω_m is the present-day matter density fraction,
+
+- H_0 is the Hubble constant,
+
+- M_B is the absolute magnitude nuisance/calibration parameter entering
+
+  the Pantheon+SH0ES likelihood,
+
+- r_d is the sound horizon scale at the drag epoch.
+
+The parameter r_d appears in the BAO likelihood but not in the
+
+Pantheon+SH0ES or CC likelihoods.
+
+In this hands-on exercise, r_d should be treated as a free parameter
+
+unless the instructor explicitly decides to fix it. This is a clean
+
+late-time geometrical approach, because the exercise does not require
+
+students to compute r_d from early-Universe physics.
+
+======================================================================
+Tasks
+======================================================================
+
+1. Start from the Week 6 joint Pantheon+SH0ES + CC script.
+
+2. Add a BAO data reader.
+
+3. Inspect the BAO dataset and identify the observable type.
+
+4. Implement D_H(z), D_M(z), and D_V(z) for flat ΛCDM.
+
+5. Build a BAO theory function capable of handling different BAO
+
+   observables.
+
+6. Construct the BAO Gaussian likelihood.
+
+7. Combine the SN, CC, and BAO likelihoods.
+
+8. Run an MCMC analysis for
+
+       θ = (Ω_m, H_0, M_B, r_d).
+
+9. Produce posterior summaries and diagnostic plots.
+
+10. Compare the Week 7 posterior with the Week 5 and Week 6 results.
