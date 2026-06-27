@@ -65,7 +65,7 @@ try:
     )
     N_bao = len(df_bao)
     print(f"BAO Mean Dataset loaded. Total data points: {N_bao}")
-    display(df_bao.head())
+    #display(df_bao.head())
 
     # Load the BAO Covariance Matrix
     C_bao_raw = np.loadtxt(cov_file)
