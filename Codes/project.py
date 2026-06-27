@@ -212,7 +212,7 @@ def run_analysis(run_name, title, use_sn, use_cc, use_bao):
             nwalkers, ndim, log_posterior_master, 
             args=(use_sn, use_cc, use_bao), pool=pool, backend=backend
         )
-        for sample in sampler.sample(initial_pos, iterations=max_steps, progress=True):
+        for sample in sampler.sample(initial_pos, iterations=max_steps, progress=True,progress_kwargs={"bar_format": "{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_noinv_fmt}]"}):
             if sampler.iteration % check_interval == 0 and sampler.iteration > 0:
                 chain = sampler.get_chain()
                 burn_in = int(chain.shape[0] * 0.5)
