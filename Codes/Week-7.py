@@ -252,7 +252,7 @@ if __name__ == '__main__':
     backend = emcee.backends.HDFBackend(filename)
     backend.reset(nwalkers, ndim)
 
-    ncpu = int(max(1, cpu_count() / 2 - 1))
+    ncpu = int(max(1, cpu_count()  - 2))
     print(f"Detected {cpu_count()} CPU cores. Setting up pool with {ncpu} cores...")
 
     start_time = time.time()
