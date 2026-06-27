@@ -20,7 +20,7 @@ from multiprocess import Pool, cpu_count
 
 # # Load the Data
 
-# In[2]:
+# In[3]:
 
 
 # 1. Pantheon SNe
@@ -65,7 +65,7 @@ try:
     )
     N_bao = len(df_bao)
     print(f"BAO Mean Dataset loaded. Total data points: {N_bao}")
-    #display(df_bao.head())
+    print(df_bao.head())
 
     # Load the BAO Covariance Matrix
     C_bao_raw = np.loadtxt(cov_file)
@@ -252,7 +252,7 @@ if __name__ == '__main__':
     backend = emcee.backends.HDFBackend(filename)
     backend.reset(nwalkers, ndim)
 
-    ncpu = max(1, cpu_count() - 2)/2
+    ncpu = int(max(1, cpu_count() / 2 - 1))
     print(f"Detected {cpu_count()} CPU cores. Setting up pool with {ncpu} cores...")
 
     start_time = time.time()
