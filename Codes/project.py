@@ -3,7 +3,7 @@
 
 # # Import the packages
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
@@ -21,7 +21,7 @@ from multiprocess import Pool, cpu_count
 
 # # Load All Datasets (SNe, CC, BAO)
 
-# In[ ]:
+# In[2]:
 
 
 # ---------------------------------------------------------
@@ -54,7 +54,7 @@ print("All datasets loaded successfully.")
 
 # # CPL Dynamical Dark Energy Physics Engine
 
-# In[ ]:
+# In[3]:
 
 
 # ---------------------------------------------------------
@@ -103,7 +103,7 @@ def bao_theory(z, obs_type, H_0, Omega_m, r_d, w0, wa):
 
 # # Dynamic Likelihoods
 
-# In[ ]:
+# In[4]:
 
 
 # ---------------------------------------------------------
@@ -161,7 +161,7 @@ def log_posterior_master(params, use_sn, use_cc, use_bao):
 
 # # The Master MCMC & Plotting Function (Updated with Save Paths)
 
-# In[ ]:
+# In[5]:
 
 
 # ---------------------------------------------------------
@@ -200,7 +200,7 @@ def run_analysis(run_name, title, use_sn, use_cc, use_bao):
 
     # --- UPDATED CHAIN SAVE PATH ---
     safe_name = run_name.replace(' ', '_')
-    filename = f"mcmc_chains/{safe_name}.h5"
+    filename = f"mcmc_chains/project/{safe_name}.h5"
 
     backend = emcee.backends.HDFBackend(filename)
     backend.reset(nwalkers, ndim)
