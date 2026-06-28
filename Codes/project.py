@@ -193,7 +193,7 @@ def run_analysis(run_name, title, use_sn, use_cc, use_bao):
     nwalkers = 48
     max_steps = 15000
     check_interval = 200
-    ncpu = int(max(1, cpu_count() / 2 - 1))
+    ncpu = int(max(1, cpu_count() - 2))
 
     # Init guess
     initial_pos = np.array([0.31, 70.0, -19.24, 147.0, -1.0, 0.0]) + 1e-3 * np.random.randn(nwalkers, ndim)
