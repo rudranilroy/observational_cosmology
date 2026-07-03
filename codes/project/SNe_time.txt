@@ -1,0 +1,10 @@
+Walkers initialized uniformly across prior boundaries.
+
+Starting SNe+SH0ES MCMC on 18 cores (Max 20000 steps)...
+ 59%|██████████████████████████████████████████▍                             | 11800/20000 [6:52:57<4:46:58,  0.48it/s]
+
+✅ Gelman-Rubin convergence achieved at step 11800!
+Final R-hat values: [1.0194 1.0068 1.0075 1.008  1.0171]
+
+MCMC complete! Time taken: 412.99 minutes.
+Chain saved permanently to: mcmc_chains/cpl_sne_shoes_prior.h5
