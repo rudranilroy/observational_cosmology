@@ -1,0 +1,10 @@
+Walkers initialized uniformly across prior boundaries.
+
+Starting CC-Only MCMC on 18 cores (Max 25000 steps)...
+ 29%|██████████████████████▏                                                      | 7200/25000 [05:09<12:45, 23.24it/s]
+
+✅ Gelman-Rubin convergence achieved at step 7200!
+Final R-hat values: [1.0192 1.0127 1.0129 1.009 ]
+
+MCMC complete! Time taken: 5.17 minutes.
+Chain saved permanently to: mcmc_chains/cpl_cc.h5
