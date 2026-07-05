@@ -1,0 +1,10 @@
+Walkers initialized uniformly across prior boundaries.
+
+Starting SNe+CC Joint MCMC on 18 cores (Max 25000 steps)...
+ 29%|████████████████████▋                                                   | 7200/25000 [4:15:07<10:30:42,  0.47it/s]
+
+✅ Gelman-Rubin convergence achieved at step 7200!
+Final R-hat values: [1.0198 1.0094 1.0083 1.0069 1.0131]
+
+MCMC complete! Time taken: 255.15 minutes.
+Chain saved permanently to: mcmc_chains/cpl_sne_cc_joint.h5
