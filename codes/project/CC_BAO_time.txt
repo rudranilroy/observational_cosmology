@@ -1,0 +1,7 @@
+Walkers initialized uniformly across prior boundaries.
+
+Starting CC+BAO Joint MCMC on 18 cores (Max 25000 steps)...
+100%|████████████████████████████████████████████████████████████████████████████| 25000/25000 [18:52<00:00, 22.07it/s]
+
+MCMC complete! Time taken: 18.88 minutes.
+Chain saved permanently to: mcmc_chains/cpl_cc_bao_joint.h5
